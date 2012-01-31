@@ -50,6 +50,7 @@ namespace JabbR.Auth
             {
                 throw new InvalidOperationException("Bad response from login provider.");
             }
+            //else if(j.
 
 
             string userIdentity = j.profile.identifier.ToString();
@@ -58,6 +59,11 @@ namespace JabbR.Auth
             if (j.profile.email != null)
             {
                 email = j.profile.email.ToString();
+            }
+
+            if (email == null || !email.Contains("datel-group.com"))
+            {
+                throw new InvalidOperationException("Only DATEL Employees may register.");
             }
 
             var repository = Bootstrapper.Kernel.Get<IJabbrRepository>();

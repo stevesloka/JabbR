@@ -674,7 +674,9 @@ namespace JabbR.Commands
         /// </summary>
         private void HandleNick(string[] parts)
         {
-            if (parts.Length == 1)
+            throw new InvalidOperationException("Not allowed in this domain!");
+
+            /*if (parts.Length == 1)
             {
                 throw new InvalidOperationException("No nick specified!");
             }
@@ -778,6 +780,7 @@ namespace JabbR.Commands
 
             // Commit the changes
             _repository.CommitChanges();
+             * */
         }
 
         private void HandleNudge(ChatUser user, string[] parts)
